@@ -1,0 +1,6 @@
+interface:
+  display_name: "自适应乔哈里协作"
+  short_description: "为所有本地项目提供自适应信息对齐、盲区提示与共享知识沉淀"
+  default_prompt: "使用 $aligning-with-johari-windows；非轻量任务先对齐，已显示的象限触发必须进入对应互动并等待闭合。"
+policy:
+  allow_implicit_invocation: true
