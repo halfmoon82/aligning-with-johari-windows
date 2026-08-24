@@ -1,0 +1,4 @@
+interface:
+  display_name: "Living Knowledge Base"
+  short_description: "Initialize and maintain evidence-linked Markdown knowledge bases"
+  default_prompt: "Use $building-living-knowledge-bases to initialize or maintain this project's living knowledge base."
