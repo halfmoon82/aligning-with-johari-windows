@@ -15,7 +15,7 @@
 
 将对应目录放入你的 skills 目录（例如 Claude Code 的 `~/.claude/skills/`）即可被发现和调用。
 
-> 注意：`aligning-with-johari-windows/references/knowledge-admission.md` 中的知识库根路径为示例路径，请按你自己的环境修改。
+> 注意：`aligning-with-johari-windows/references/knowledge-admission.md` 中的知识库根路径为占位符 `<your-knowledge-base-root>`，使用前请替换为你自己环境的实际路径。
 
 ## License
 

@@ -1,6 +1,6 @@
 # Shared Knowledge Admission Contract
 
-Knowledge-base root: `/Users/smy/Documents/Codex/knowledge-base`
+Knowledge-base root: `<your-knowledge-base-root>` (e.g. `~/Documents/knowledge-base`)
 
 Use `building-living-knowledge-bases` for all operations and read `KB_SCHEMA.md` before querying or proposing a write.
 
