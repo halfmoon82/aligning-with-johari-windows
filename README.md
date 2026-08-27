@@ -2,7 +2,7 @@
 
 ## 中文说明
 
-`aligning-with-johari-windows` 是一套给 AI 助手和人类协作者使用的“先对齐、再执行”交互方法。它借用乔哈里视窗的思想，把协作中的信息差、认知盲点和未验证假设变成可以识别、暂停和关闭的工作状态。
+`aligning-with-johari-windows` 是一套适用于各种人机协作场景的“先对齐、再执行”交互方法。它借用乔哈里视窗的思想，把协作中的信息差、认知盲点和未验证假设变成可以识别、暂停和关闭的工作状态。软件开发只是其中一个例子，不是使用前提。
 
 它解决的不是“让 AI 多问几个问题”，而是更实际的问题：AI 什么时候可以直接做，什么时候必须停下来问你，什么时候需要先做一个最小验证？
 
@@ -34,11 +34,25 @@
 
 ### 什么时候有价值
 
-- 需求还不清楚，但直接开工代价很高；
-- 多人或多 Agent 协作，容易把不同理解当成同一个目标；
-- 评审、授权、发布或数据变更等不可逆动作前，需要明确责任边界；
+- 目标、成功标准或授权还不清楚，但直接行动代价很高；
+- 多人、多团队或多 Agent 协作，容易把不同理解当成同一个目标；
+- 做研究、分析、写作、咨询或决策支持，需要把事实与推断分开；
+- 进行评审、审批、采购、发布、数据变更或其他不可逆动作，需要明确责任边界；
 - 证据不完整、工具状态不稳定，不能把“没看到”误判为“没有”；
 - 希望 AI 少一点自信猜测，多一点可验证、可恢复的协作。
+
+### 适用范围
+
+这套方法适合任何“AI 需要理解上下文、做判断、调用工具或推动下一步”的工作，例如：
+
+- **产品与项目**：需求访谈、路线图、项目计划、风险登记和跨团队推进；
+- **研究与分析**：资料搜集、市场研究、数据分析、尽调和结论复核；
+- **内容与沟通**：报告、方案、邮件、培训材料、采访整理和对外口径；
+- **运营与管理**：流程改进、会议决策、绩效反馈、资源协调和变更管理；
+- **合规与治理**：审批、审计准备、权限边界、政策解释和证据留痕；
+- **软件与自动化**：编码、测试、部署前检查、Agent 编排和恢复流程。
+
+它不是行业知识库，也不会替用户做最终价值判断；它提供的是一层通用的协作护栏：在重要信息缺失、存在重大盲点或证据不足时，帮助双方停在正确的位置。
 
 ### 工作方式
 
@@ -62,7 +76,7 @@
 
 ## English
 
-`aligning-with-johari-windows` is a “align first, execute second” interaction method for AI assistants and human collaborators. Inspired by the Johari Window model, it turns information gaps, blind spots, and unverified assumptions into explicit states that can be detected, paused, and resolved.
+`aligning-with-johari-windows` is a general “align first, execute second” interaction method for AI assistants and human collaborators. Inspired by the Johari Window model, it turns information gaps, blind spots, and unverified assumptions into explicit states that can be detected, paused, and resolved. Software development is only one example, not a prerequisite.
 
 This is not about making an AI ask more questions. It answers a practical decision: when may the AI act directly, when must it stop and ask the user, and when should it run a smallest-cost verification first?
 
@@ -94,11 +108,25 @@ Reusable conclusions enter a shared knowledge base only after source, scope, fre
 
 ### When it is valuable
 
-- Requirements are unclear and the cost of starting wrong is high;
-- Multiple people or Agents may mistake different interpretations for one shared goal;
-- Reviews, authorization, releases, or data changes require explicit responsibility boundaries;
+- Goals, success criteria, or authorization are unclear and the cost of acting on the wrong premise is high;
+- Multiple people, teams, or Agents may mistake different interpretations for one shared goal;
+- Research, analysis, writing, consulting, or decision support requires facts to be separated from inferences;
+- Reviews, approvals, procurement, releases, data changes, or other irreversible actions require explicit responsibility boundaries;
 - Evidence or tool availability is incomplete, so “not observed” must not become “does not exist”;
 - You want less confident guessing and more verifiable, recoverable collaboration.
+
+### Scope of use
+
+The method applies anywhere an AI must understand context, make a judgment, call a tool, or move work to the next step, including:
+
+- **Product and projects**: discovery interviews, roadmaps, plans, risk registers, and cross-team execution;
+- **Research and analysis**: source gathering, market research, data analysis, due diligence, and conclusion review;
+- **Content and communication**: reports, proposals, email, training material, interview synthesis, and public messaging;
+- **Operations and management**: process improvement, meeting decisions, feedback, resource coordination, and change management;
+- **Compliance and governance**: approvals, audit preparation, permission boundaries, policy interpretation, and evidence trails;
+- **Software and automation**: coding, testing, pre-release checks, Agent orchestration, and recovery workflows.
+
+It is not an industry knowledge base and does not make final value judgments for the user. It provides a general collaboration guardrail: when important context is missing, a material blind spot appears, or evidence is insufficient, it helps both sides stop at the right boundary.
 
 ### How it works
 
