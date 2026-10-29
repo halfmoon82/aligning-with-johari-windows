@@ -24,7 +24,7 @@ ALLOWED = {
     "mode": {"light", "standard", "deep"},
     "phase": {"waiting", "complete", "blocked"},
     "gate": {"not-required", "passed", "paused"},
-    "kb": {"not-required", "checked"},
+    "kb": {"not-required", "checked", "skipped"},
     "admission": {"not-due", "none", "pending", "resolved"},
 }
 
@@ -100,8 +100,8 @@ def validate(message: str, fields: Dict[str, str]) -> Optional[str]:
             return "light mode must not expose gate or settlement status"
         return None
 
-    if kb != "checked":
-        return "standard/deep must declare kb=checked"
+    if kb not in {"checked", "skipped"}:
+        return "standard/deep must declare kb=checked|skipped"
     if phase == "waiting":
         if gate not in {"passed", "paused"} or admission != "not-due" or candidates != 0:
             return "waiting state must use gate=passed|paused admission=not-due candidates=0"
