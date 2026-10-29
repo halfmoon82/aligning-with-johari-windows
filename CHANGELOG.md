@@ -9,6 +9,7 @@ Context-cost iteration for `aligning-with-johari-windows`. The gate still runs o
 - **Post-compaction rule.** A gate card with no Hidden/Blind/Unknown trigger no longer ends the turn; planned steps continue in the same turn. Only a triggered card or `phase=waiting` stops there.
 - **Knowledge search by header.** Query the knowledge-base index with a count plus header-only output (`cut -d'。' -f1 | head -8`) instead of loading the whole index. The search runs only when the current Open area is `部分足够` or `不足`.
 - **`kb=skipped`.** New marker value for `standard/deep` turns where the current Open area was `足够` and no search ran. `scripts/johari_stop.py` accepts it.
+- **Gate cadence wording.** `triggered-contracts.md` now says the gate runs on every turn and is shown at most once per turn, replacing "once per interaction stage", which could be read as conflicting with per-turn execution.
 - **Optional S1 field.** In projects that contain a vibe-entry protocol, `standard/deep` gate cards append an `S1` complexity score. Other projects omit it.
 
 ## v1.0.0
