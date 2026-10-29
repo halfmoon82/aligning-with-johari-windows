@@ -65,6 +65,7 @@
 安装后，AI 助手会读取 `aligning-with-johari-windows/SKILL.md`，并按需使用：
 
 - `references/routing-and-output.md`：深度路由、对齐门和输出契约；
+- `references/triggered-contracts.md`：仅在隐藏区/盲区/未知区触发、上一回合处于等待状态或需要完整专家输出时才读取；
 - `references/knowledge-admission.md`：共享知识库查询、入库和维护边界；
 - `building-living-knowledge-bases/`：有来源的知识库子技能。
 
@@ -139,6 +140,7 @@ The skill selects one of three interaction depths based on risk:
 After installation, the assistant reads `aligning-with-johari-windows/SKILL.md` and uses these resources as needed:
 
 - `references/routing-and-output.md`: depth routing, the alignment gate, and output contract;
+- `references/triggered-contracts.md`: read only when a Hidden/Blind/Unknown trigger is displayed, the previous turn ended in `phase=waiting`, or a full expert treatment is requested;
 - `references/knowledge-admission.md`: shared knowledge-base query, admission, and maintenance boundaries;
 - `building-living-knowledge-bases/`: the source-grounded knowledge-base sub-skill.
 
