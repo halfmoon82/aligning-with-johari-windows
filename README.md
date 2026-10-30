@@ -14,7 +14,7 @@
 
 #### 2. 三个象限对应三种不同动作
 
-- **隐藏区（Hidden）**：缺少只有用户知道的目标、定义、例外或授权。AI 必须提出一个高信息问题并等待，不能用“我先按默认做”绕过去。
+- **隐藏区（Hidden）**：缺少只有用户知道的目标、定义、例外或授权。AI 必须提出一个高信息问题并等待，不能用“我先按默认做”绕过去。唯一例外是可撤回的默认值：有证据支持一个具体默认值，它不定义交付物的目标、受众或验收标准，猜错了也能低成本重做（只需本地返工、没有外部副作用；不涉及授权、对外或第三方可见、不可逆的动作，删除，任何花钱或额度，凭据或个人数据，业务含义）。这时对齐门写 `隐藏区：默认继续（可撤回）`，用一句话说明默认值和怎么改，然后继续；这个值不算触发，不会停下等待。
 - **盲区（Blind）**：AI 发现了可能改变结果的风险、矛盾或更好替代方案。AI 会展示观察、证据、置信度和影响，请用户选择“接受 / 质疑 / 先验证”。
 - **未知区（Unknown）**：现有证据无法区分多个重要假设。AI 只做最低成本的只读探索，并提出一个能区分假设的问题，而不是编造确定答案。
 
@@ -62,6 +62,8 @@
 - `standard`：有项目上下文、配置检查、修改、诊断或评审时，先过对齐门；
 - `deep`：外部写入、不可逆动作、重大分歧、反复失败或探索性任务，进行更严格的证据和状态检查。
 
+被其他 Agent 派发的子代理（对话方是 Agent 而不是用户）不使用本技能：派发方先与用户对齐，再把目标、判据和边界写进派发说明；子代理把缺失判据或矛盾写在汇报的“待监工处理”下。用户直接在该线程发言时，那一回合照常适用本技能；无法确定对话方是不是用户时，按用户处理。
+
 安装后，AI 助手会读取 `aligning-with-johari-windows/SKILL.md`，并按需使用：
 
 - `references/routing-and-output.md`：深度路由、对齐门和输出契约；
@@ -89,7 +91,7 @@ Collaboration cannot collect every piece of background. The skill tracks only ga
 
 #### 2. Three quadrants, three different actions
 
-- **Hidden**: a user-only goal, definition, exception, or authorization is missing. The AI asks one high-information question and waits instead of silently choosing a default.
+- **Hidden**: a user-only goal, definition, exception, or authorization is missing. The AI asks one high-information question and waits instead of silently choosing a default. The one exception is a reversible default: the evidence supports one specific default, it does not define the deliverable's goal, audience, or acceptance criterion, and a wrong guess is cheap to redo (only local rework with no external side effect; never for authorization, external, third-party-visible, or irreversible effects, deletion, any money or quota spend, credentials or personal data, or a change of business meaning). The gate then shows `隐藏区：默认继续（可撤回）` (“default, reversible”), states the default and how to switch in one line, and continues; this value is not a trigger and does not pause.
 - **Blind**: the AI sees a risk, contradiction, or better alternative that could change the result. It presents the observation, evidence, confidence, and impact, then asks the user to choose: “accept / challenge / verify first.”
 - **Unknown**: available evidence cannot distinguish important competing hypotheses. The AI performs only minimal read-only exploration and asks one discriminating question rather than inventing certainty.
 
@@ -136,6 +138,8 @@ The skill selects one of three interaction depths based on risk:
 - `light`: one-step, low-risk, self-contained work; answer directly;
 - `standard`: project context, configuration checks, changes, diagnosis, or review; pass the alignment gate first;
 - `deep`: external writes, irreversible actions, major disagreement, repeated failure, or exploratory work; apply stricter evidence and state checks.
+
+Subagents dispatched by another agent (whose counterpart is an agent, not the user) do not use this skill. The dispatcher aligns with the user first and writes the goal, criteria, and boundaries into the dispatch prompt; the subagent lists any missing criterion or contradiction under `待监工处理` (“for the supervisor”) in its report. When the user writes directly in such a thread, that turn uses the skill as usual; when it is unclear whether the counterpart is the user, treat it as the user.
 
 After installation, the assistant reads `aligning-with-johari-windows/SKILL.md` and uses these resources as needed:
 

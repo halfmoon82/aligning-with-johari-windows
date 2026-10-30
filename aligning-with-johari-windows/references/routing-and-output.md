@@ -8,7 +8,7 @@
 | `standard` | Any applies: multiple steps or independently verified facts, change, diagnosis, design, review, source/material judgment, instruction/loading audit, project-root resolution, material assumption, or history/project context | Complete and display the pre-work alignment gate; use only triggered quadrants. Read-only or low risk does not cancel a standard trigger. |
 | `deep` | Any applies: high stakes, irreversible or external effects, major disagreement, repeated failure, novel exploration, or retrospective | Complete and display the gate; test assumptions, alternatives, and evidence boundaries. |
 
-Apply `deep > standard > light`; when uncertain, choose `standard`. Escalate when new information changes the decision, authorization, safety boundary, or evidence basis. De-escalate when material uncertainty closes. The user may request depth, but not bypass safety or authorization.
+Apply `deep > standard > light`; when uncertain, choose `standard`. Dispatched subagents whose counterpart is another agent skip routing, the gate, and the marker entirely (see SKILL.md). Escalate when new information changes the decision, authorization, safety boundary, or evidence basis. De-escalate when material uncertainty closes. The user may request depth, but not bypass safety or authorization.
 
 Any inspection, count, hash, or configuration check against filesystem, repository, runtime, or external state is verification and therefore at least `standard`, even when one read-only command can complete it.
 
@@ -30,7 +30,7 @@ After the Query, this canonical line is the only authoritative status and the on
 
 This current runtime contract controls Johari behavior. If a durable collaboration article is older or conflicts with it, report the persistent result as `过期或冲突` and follow this contract; durable knowledge cannot weaken a required interaction state.
 
-Replace values with concise action states. Append an Unknown field only when triggered. Use these values when applicable: `隐藏区：触发，等待补充`, `盲区：触发，结论前确认`, and `未知区：触发，最小探索中`. The gate detects state; it never completes the required interaction. Once a trigger is displayed, the corresponding interaction contract below is mandatory in that stage.
+Replace values with concise action states. Append an Unknown field only when triggered. Use these values when applicable: `隐藏区：触发，等待补充`, `隐藏区：默认继续（可撤回）`, `盲区：触发，结论前确认`, and `未知区：触发，最小探索中`. The gate detects state; it never completes the required interaction. Once a trigger is displayed, the corresponding interaction contract below is mandatory in that stage. `隐藏区：默认继续（可撤回）` records a Hidden state resolved by the SKILL.md step 4 exception; it is not a displayed trigger, enters no interaction card, does not end the turn, and by itself never makes the marker `gate=paused`. Evaluate each Hidden gap separately; any gap that fails the exception keeps Hidden triggered.
 
 **Triggered contracts.** When the gate displays Hidden, Blind, or Unknown, or the previous assistant turn ended with `phase=waiting`, or the user asks for a full expert treatment, also read [triggered-contracts.md](triggered-contracts.md) before continuing. It holds the paused-gate line, the resume rules, the per-quadrant interaction cards, the expert output option, and the common-mistakes list. Do not read it otherwise.
 
@@ -60,14 +60,14 @@ Examples: `2 + 2` receives only `4`; `10 cm` receives only `100 mm`; a direct ph
 **Binding gate:** evaluate contradictions only when they materially change the active choice, authorization, or evidence meaning. Preserve an explicit, unambiguous answer even when the reply also contains unrelated or imperfect text. If a material conflict makes the answer uncertain, keep the dependent action paused and ask for one concise restatement. A response may resolve the state by directly supplying the missing information or by an unambiguous semantic equivalent of the immediately preceding choice. Do not add a checklist or announce quadrants.
 
 - If ambiguity blocks correctness, safety, authorization, or a material action, ask one high-information clarification and state how different answers change the result.
-- If ambiguity does not block progress, list the concise plausible interpretations, state the default interpretation, and continue.
+- If ambiguity does not block progress, list the concise plausible interpretations, state the default interpretation, and continue. This covers ambiguity that does not trigger Hidden; a triggered Hidden continues on a default only through the SKILL.md step 4 exception.
 - If the user explicitly asks for possibilities or alternatives, list them; do not replace that deliverable with a clarification question.
 
 ## Route other quadrants only when triggered
 
 | Quadrant | Enter when | Exit when |
 |---|---|---|
-| Hidden | The result depends on user-only goals, definitions, experience, history, exceptions, risk tolerance, or authorization not present in shared context. | The criterion is supplied, found in authorized sources, or the user explicitly authorizes a named default. |
+| Hidden | The result depends on user-only goals, definitions, experience, history, exceptions, risk tolerance, or authorization not present in shared context. | The criterion is supplied, found in authorized sources, the user explicitly authorizes a named default, or the reversible-default exception in SKILL.md step 4 holds (`隐藏区：默认继续（可撤回）`, default and switch path stated, work continues). |
 | Blind | A material contradiction, overlooked risk, invalid premise, better alternative, or second-order effect absent from shared context can change the conclusion, action, authorization, or validation path. | The user accepts or challenges it, or the smallest valid test disproves or bounds it. |
 | Unknown | Neither party nor available evidence can distinguish important explanations; the task is exploratory, novel, or repeatedly failing. | Evidence distinguishes the hypotheses, the user accepts a bounded uncertainty, or the agreed stop condition is met. |
 
