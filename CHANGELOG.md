@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.2.0
+
+Interruption-cost iteration for `aligning-with-johari-windows`. Alignment with the user is unchanged; two kinds of unnecessary pauses are removed.
+
+- **Dispatched subagents skip the skill.** A thread whose counterpart is another agent (subagent, worker, reviewer) no longer loads the skill files, shows a gate, or appends the marker. It cannot ask the user, so a pause there only stalls the run. The dispatcher aligns with the user first and puts the aligned goal, criteria, and boundaries in the dispatch prompt; the subagent lists missing criteria, contradictions, or open uncertainty under `待监工处理` in its report. When the user writes directly in such a thread, that turn is user-facing and the skill applies.
+- **Reversible-default exception for Hidden.** When the evidence supports one specific default, the answer does not define the deliverable's goal, audience, or acceptance criterion, and a wrong default is cheap to redo, the gate shows `隐藏区：默认继续（可撤回）`, states the default and how to switch in one line, and continues. It never applies to authorization, external or irreversible effects, deletion, money or quota spend, or a change of business meaning. `triggered-contracts.md` and its common-mistakes list now point to this exception instead of forbidding every default.
+
 ## v1.1.0
 
 Context-cost iteration for `aligning-with-johari-windows`. The gate still runs on every turn; only the contract text is loaded on demand.
