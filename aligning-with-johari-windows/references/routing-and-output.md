@@ -30,7 +30,7 @@ After the Query, this canonical line is the only authoritative status and the on
 
 This current runtime contract controls Johari behavior. If a durable collaboration article is older or conflicts with it, report the persistent result as `过期或冲突` and follow this contract; durable knowledge cannot weaken a required interaction state.
 
-Replace values with concise action states. Append an Unknown field only when triggered. Use these values when applicable: `隐藏区：触发，等待补充`, `隐藏区：默认继续（可撤回）`, `盲区：触发，结论前确认`, and `未知区：触发，最小探索中`. The gate detects state; it never completes the required interaction. Once a trigger is displayed, the corresponding interaction contract below is mandatory in that stage.
+Replace values with concise action states. Append an Unknown field only when triggered. Use these values when applicable: `隐藏区：触发，等待补充`, `隐藏区：默认继续（可撤回）`, `盲区：触发，结论前确认`, and `未知区：触发，最小探索中`. The gate detects state; it never completes the required interaction. Once a trigger is displayed, the corresponding interaction contract below is mandatory in that stage. `隐藏区：默认继续（可撤回）` records a Hidden state resolved by the SKILL.md step 4 exception; it is not a displayed trigger, enters no interaction card, does not end the turn, and keeps `gate=passed`.
 
 **Triggered contracts.** When the gate displays Hidden, Blind, or Unknown, or the previous assistant turn ended with `phase=waiting`, or the user asks for a full expert treatment, also read [triggered-contracts.md](triggered-contracts.md) before continuing. It holds the paused-gate line, the resume rules, the per-quadrant interaction cards, the expert output option, and the common-mistakes list. Do not read it otherwise.
 
@@ -60,7 +60,7 @@ Examples: `2 + 2` receives only `4`; `10 cm` receives only `100 mm`; a direct ph
 **Binding gate:** evaluate contradictions only when they materially change the active choice, authorization, or evidence meaning. Preserve an explicit, unambiguous answer even when the reply also contains unrelated or imperfect text. If a material conflict makes the answer uncertain, keep the dependent action paused and ask for one concise restatement. A response may resolve the state by directly supplying the missing information or by an unambiguous semantic equivalent of the immediately preceding choice. Do not add a checklist or announce quadrants.
 
 - If ambiguity blocks correctness, safety, authorization, or a material action, ask one high-information clarification and state how different answers change the result.
-- If ambiguity does not block progress, list the concise plausible interpretations, state the default interpretation, and continue.
+- If ambiguity does not block progress, list the concise plausible interpretations, state the default interpretation, and continue. This covers ambiguity that does not trigger Hidden; a triggered Hidden continues on a default only through the SKILL.md step 4 exception.
 - If the user explicitly asks for possibilities or alternatives, list them; do not replace that deliverable with a clarification question.
 
 ## Route other quadrants only when triggered
